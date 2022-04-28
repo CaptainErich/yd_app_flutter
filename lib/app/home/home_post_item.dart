@@ -53,12 +53,31 @@ class HomePostItem extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            Icon(Icons.map),
             Text(
-              "不限 长期招聘 男女不限",
+              "中国招商银行有限公司",
               style: TextStyle(
                 // color: Colors.blue,
                 fontSize: 12.0,
                 height: 1.2,
+              ),
+            ),
+            Spacer(),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(3),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.yellow,
+                ),
+                padding: EdgeInsets.fromLTRB(10, 3, 10, 3),
+                child: Text(
+                  "立即报名",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    height: 1.2,
+                    backgroundColor: Colors.yellow,
+                  ),
+                ),
               ),
             ),
           ],

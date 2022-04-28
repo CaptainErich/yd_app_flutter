@@ -27,6 +27,7 @@ class HomePostWidget extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 15,),
             HomePostList(),
           ],
         ));
