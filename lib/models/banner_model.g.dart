@@ -8,7 +8,6 @@ part of 'banner_model.dart';
 
 Banner_model _$Banner_modelFromJson(Map<String, dynamic> json) => Banner_model()
   ..apcid = json['apcid'] as num
-  ..apid = json['apid'] as num
   ..orders = json['orders'] as num
   ..adtitle = json['adtitle'] as String
   ..imgurl = json['imgurl'] as String
@@ -36,10 +35,6 @@ Banner_model _$Banner_modelFromJson(Map<String, dynamic> json) => Banner_model()
 Map<String, dynamic> _$Banner_modelToJson(Banner_model instance) =>
     <String, dynamic>{
       'apcid': instance.apcid,
-      'typeid': instance.typeid,
-      'name': instance.name,
-      'appid': instance.appid,
-      'apid': instance.apid,
       'orders': instance.orders,
       'adtitle': instance.adtitle,
       'imgurl': instance.imgurl,
@@ -57,7 +52,6 @@ Map<String, dynamic> _$Banner_modelToJson(Banner_model instance) =>
       'registrationnumber': instance.registrationnumber,
       'companyname': instance.companyname,
       'companyshortname': instance.companyshortname,
-      'columnname': instance.columnname,
       'typesname': instance.typesname,
       'logourl': instance.logourl,
       'bannertype': instance.bannertype,

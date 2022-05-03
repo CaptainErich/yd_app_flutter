@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:yd_app_flutter/app/webview/Browser.dart';
+import 'package:provider/provider.dart';
+import 'package:yd_app_flutter/models/banner_model.dart';
+import 'package:yd_app_flutter/models/index.dart';
 
 class HomeSlideWidget extends StatelessWidget {
   const HomeSlideWidget({Key? key}) : super(key: key);
@@ -8,30 +11,35 @@ class HomeSlideWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // List images = ["home_images/pin.png"];
-    List<Image> images = [
-      Image.network(
-        "https://wanandroid.com/blogimgs/8690f5f9-733a-476a-8ad2-2468d043c2d4.png",
-        fit: BoxFit.cover,
-      ),
-      Image.network(
-          "https://www.wanandroid.com/blogimgs/62c1bd68-b5f3-4a3c-a649-7ca8c7dfabe6.png",
-          fit: BoxFit.cover),
-      Image.network(
-          "https://www.wanandroid.com/blogimgs/50c115c2-cf6c-4802-aa7b-a4334de444cd.png",
-          fit: BoxFit.cover),
-      Image.network(
-          "https://www.wanandroid.com/blogimgs/90c6cc12-742e-4c9f-b318-b912f163b8d0.png",
-          fit: BoxFit.cover)
-    ];
+    List<Banner_model> dataList = [];
+
+    HomeModel homeModel = context.watch<HomeModel>();
+    if (homeModel.done) {
+      if (homeModel.models.data.banner.length > 0) {
+        dataList = homeModel.models.data.banner;
+      }
+    } else {
+      return Container(
+        height: 100,
+        child: Text(
+          "占位",
+          textAlign: TextAlign.center,
+        ),
+      );
+    }
 
     return Container(
         height: 100,
         padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
         child: Swiper(
           itemBuilder: (context, index) {
+            Banner_model model = dataList[index];
             return ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: images[index],
+              child: Image.network(
+                model.imgurl,
+                fit: BoxFit.cover,
+              ),
             );
           },
           onTap: (index) {
@@ -44,7 +52,7 @@ class HomeSlideWidget extends StatelessWidget {
           },
           indicatorLayout: PageIndicatorLayout.COLOR,
           autoplay: true,
-          itemCount: images.length,
+          itemCount: dataList.length,
           pagination: const SwiperPagination(builder: SwiperPagination.dots),
         ));
   }

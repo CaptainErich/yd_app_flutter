@@ -9,8 +9,6 @@ class Banner_model {
   late num apcid;
   late String typeid;
   late String name;
-  late String appid;
-  late num apid;
   late num orders;
   late String adtitle;
   late String imgurl;
@@ -28,7 +26,6 @@ class Banner_model {
   late num registrationnumber;
   late String companyname;
   late String companyshortname;
-  late String columnname;
   late String typesname;
   late String logourl;
   late num bannertype;

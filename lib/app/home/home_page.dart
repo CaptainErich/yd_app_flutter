@@ -4,6 +4,7 @@ import 'package:yd_app_flutter/app/home/home_post_widget.dart';
 import 'package:yd_app_flutter/app/home/home_slide_widget.dart';
 import 'package:dio/dio.dart';
 import 'package:yd_app_flutter/models/index.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,9 +15,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Dio _dio = Dio();
+  HomeModel _homeModel = HomeModel();
 
   @override
   Widget build(BuildContext context) {
+    _onRefresh();
     return Scaffold(
       appBar: AppBar(
         //导航栏
@@ -31,14 +34,17 @@ class _HomePageState extends State<HomePage> {
           _onRefresh();
           return Future.value();
         },
-        child: ListView(children: <Widget>[
-          SizedBox(
-            height: 10,
-          ),
-          HomeSlideWidget(),
-          HomeLogoWallWidget(),
-          HomePostWidget(),
-        ]),
+        child: ChangeNotifierProvider.value(
+          value: _homeModel,
+          child: ListView(children: <Widget>[
+            SizedBox(
+              height: 10,
+            ),
+            HomeSlideWidget(),
+            HomeLogoWallWidget(),
+            HomePostWidget(),
+          ]),
+        ),
       ),
     );
   }
@@ -48,16 +54,10 @@ class _HomePageState extends State<HomePage> {
       Response response;
       response = await _dio.get("https://api.shunhaitec.com/api/Page/LX_FX");
       var homeModel = Models.fromJson(response.data);
-      print(homeModel.message);
-      setState(() {
-      });
-
-    }catch (e){
+      _homeModel.models = homeModel;
+      // setState(() {});
+    } catch (e) {
       print('异常信息:$e');
     }
-    await Future.delayed(Duration(seconds: 2), () {
-      setState(() {});
-    });
   }
-
 }

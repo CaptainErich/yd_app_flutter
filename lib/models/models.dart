@@ -15,6 +15,17 @@ class Models {
   Map<String, dynamic> toJson() => _$ModelsToJson(this);
 }
 
-class ModelsChangeNotifer extends ChangeNotifier {
-  Models get _models => Globle.
+class HomeModel extends ChangeNotifier {
+  Models? _models;
+  bool done = false;
+  Models get models => _models!;
+
+  set models(Models models) {
+    _models = models;
+    done = true;
+    notifyListeners();
+  }
+
+
+
 }

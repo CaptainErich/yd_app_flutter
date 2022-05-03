@@ -17,6 +17,7 @@ class _HomePostListState extends State<HomePostList> {
         shrinkWrap: true,
         physics: new NeverScrollableScrollPhysics(),
         itemBuilder: (BuildContext context, int index) {
+          print("-----$index");
           return HomePostItem();
         },
         separatorBuilder: (BuildContext context, int index) {
