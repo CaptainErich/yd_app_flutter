@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:yd_app_flutter/models/home_post_item.dart';
 
 class HomePostItem extends StatelessWidget {
-  const HomePostItem({Key? key}) : super(key: key);
+  final Home_post_item? home_post_item;
+  const HomePostItem({Key? key, this.home_post_item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +14,7 @@ class HomePostItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "在家兼职 小任务",
+              home_post_item?.title??"",
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 20.0,
@@ -21,7 +23,7 @@ class HomePostItem extends StatelessWidget {
               ),
             ),
             Text(
-              "16元/小时",
+              "${home_post_item?.price}${home_post_item?.priceunit}",
               style: TextStyle(
                 color: Colors.red,
                 fontSize: 18.0,
@@ -38,7 +40,7 @@ class HomePostItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              "不限 长期招聘 男女不限",
+              "${home_post_item?.sexrestriction}${home_post_item?.term}",
               style: TextStyle(
                 color: Colors.blue,
                 fontSize: 10.0,

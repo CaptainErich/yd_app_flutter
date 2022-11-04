@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yd_app_flutter/app/home/home_post_item.dart';
 import 'package:yd_app_flutter/app/home/home_post_list.dart';
 
 class HomePostWidget extends StatelessWidget {

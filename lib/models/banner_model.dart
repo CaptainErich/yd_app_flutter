@@ -7,8 +7,6 @@ class Banner_model {
   Banner_model();
 
   late num apcid;
-  late String typeid;
-  late String name;
   late num orders;
   late String adtitle;
   late String imgurl;

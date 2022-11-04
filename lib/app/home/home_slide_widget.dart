@@ -3,7 +3,8 @@ import 'package:card_swiper/card_swiper.dart';
 import 'package:yd_app_flutter/app/webview/Browser.dart';
 import 'package:provider/provider.dart';
 import 'package:yd_app_flutter/models/banner_model.dart';
-import 'package:yd_app_flutter/models/index.dart';
+
+import '../../models/models.dart';
 
 class HomeSlideWidget extends StatelessWidget {
   const HomeSlideWidget({Key? key}) : super(key: key);

@@ -12,6 +12,9 @@ Model _$ModelFromJson(Map<String, dynamic> json) => Model()
   ..banner = (json['banner'] as List<dynamic>)
       .map((e) => Banner_model.fromJson(e as Map<String, dynamic>))
       .toList()
+  ..joblist = (json['joblist'] as List<dynamic>)
+      .map((e) => Home_post_item.fromJson(e as Map<String, dynamic>))
+      .toList()
   ..acid = json['acid'] as num;
 
 Map<String, dynamic> _$ModelToJson(Model instance) => <String, dynamic>{
@@ -19,4 +22,5 @@ Map<String, dynamic> _$ModelToJson(Model instance) => <String, dynamic>{
       'bannerapcid': instance.bannerapcid,
       'banner': instance.banner,
       'acid': instance.acid,
-    };
+      'joblist': instance.joblist,
+};

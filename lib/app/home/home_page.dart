@@ -3,8 +3,8 @@ import 'package:yd_app_flutter/app/home/home_logowall_widget.dart';
 import 'package:yd_app_flutter/app/home/home_post_widget.dart';
 import 'package:yd_app_flutter/app/home/home_slide_widget.dart';
 import 'package:dio/dio.dart';
-import 'package:yd_app_flutter/models/index.dart';
 import 'package:provider/provider.dart';
+import 'package:yd_app_flutter/models/models.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

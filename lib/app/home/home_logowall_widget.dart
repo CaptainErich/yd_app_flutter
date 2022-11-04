@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:yd_app_flutter/app/home/hoem_logowall_item.dart';
 import 'package:yd_app_flutter/models/banner_model.dart';
-import 'package:yd_app_flutter/models/index.dart';
 import 'package:provider/provider.dart';
+import 'package:yd_app_flutter/models/models.dart';
 
 class HomeLogoWallWidget extends StatelessWidget {
   const HomeLogoWallWidget({Key? key}) : super(key: key);
